@@ -463,7 +463,7 @@ struct fpsstate
         }
 		else if(m_rlonly)
 		{
-			armour = 25;
+			armour = 50;
 			health = MAX_HP;
 			gunselect = GUN_RL;
 			ammo[GUN_RL] = 500;
