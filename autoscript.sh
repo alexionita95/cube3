@@ -9,15 +9,19 @@ ACTION='\033[1;90m'
 
 killProcess()
 {
-if ! pgrep -x $proc_name > /dev/null 
+if pgrep -x $proc_name > /dev/null 
 then
+echo
+else
 pkill $proc_name
 fi
 }
 keepAlive()
 {
-if ! pgrep -x $proc_name > /dev/null 
+if pgrep -x $proc_name > /dev/null 
 then
+echo
+else
 cd ../
 ./sauerbraten_unix -d2 &
 cd src
