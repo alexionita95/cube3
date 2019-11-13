@@ -38,17 +38,14 @@ fi
 
  if [ "$HEADHASH" != "$UPSTREAMHASH" ]
  then
-  echo -e ${ACTION}Update available...
-  echo -e ${ACTION}Updating...
+ echo -e ${ACTION}Update available...
+ echo -e ${ACTION}Updating...
  git pull
  echo -e ${ACTION}Stopping server...
  killProcess
  echo -e ${ACTION}Building new sources...
  make install
  echo -e ${ACTION}Done updating.
- 
- else
-   echo -e ${FINISHED}Current branch is up to date with origin/master.${NOCOLOR}
  fi
  keepAlive
 done
