@@ -24,7 +24,9 @@ if pgrep $proc_name
 then
 echo " Alive "
 else
-./../sauerbraten_unix &
+cd ../
+./sauerbraten_unix &
+cd src
 fi
 }
 
