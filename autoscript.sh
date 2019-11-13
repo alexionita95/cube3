@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ACTION='\033[1;90m'
  FINISHED='\033[1;96m'
