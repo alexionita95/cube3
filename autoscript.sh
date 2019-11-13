@@ -7,7 +7,7 @@ ACTION='\033[1;90m'
  ERROR='\033[0;31m'
  proc_name='native_client'
 
-function killProcess()
+killProcess()
 {
 if pgrep $proc_name
 then
@@ -18,7 +18,7 @@ else
 echo " $proc_name is not running/stopped "
 fi
 }
-function keepAlive()
+keepAlive()
 {
 if pgrep $proc_name
 then
