@@ -11,19 +11,13 @@ killProcess()
 {
 if pgrep $proc_name
 then
-echo " $proc_name running "
 pkill $proc_name
-echo "$proc_name  got killed"
-else
-echo " $proc_name is not running/stopped "
 fi
 }
 keepAlive()
 {
-if pgrep $proc_name
+if ! pgrep $proc_name ;
 then
-echo " Alive "
-else
 cd ../
 ./sauerbraten_unix &
 cd src
@@ -31,7 +25,6 @@ fi
 }
 
  while true; do 
- echo -e ${ACTION}Checking Git repo
  echo -e =======================${NOCOLOR}
  BRANCH=$(git rev-parse --abbrev-ref HEAD)
  git fetch
@@ -47,9 +40,6 @@ fi
  echo -e ${ACTION}Building new sources...
  make install
  echo -e ${ACTION}Done updating.
- 
- else
-   echo -e ${FINISHED}Current branch is up to date with origin/master.${NOCOLOR}
  fi
  keepAlive
 done
