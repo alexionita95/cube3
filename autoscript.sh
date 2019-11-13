@@ -20,10 +20,11 @@ fi
 }
 keepAlive()
 {
-if pgrep $proc_name
+if pgrep $proc_name > /dev/null
 then
-echo "Running..."
+echo "" >> /dev/null
 else
+echo "Starting server..."
 cd ../
 ./sauerbraten_unix -d2 &
 cd src
