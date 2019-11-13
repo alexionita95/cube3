@@ -19,7 +19,7 @@ keepAlive()
 if ! pgrep $proc_name ;
 then
 cd ../
-./sauerbraten_unix &
+./sauerbraten_unix -d2 &
 cd src
 fi
 }
