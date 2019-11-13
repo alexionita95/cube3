@@ -31,21 +31,19 @@ fi
 }
 
  while true; do 
- BRANCH=$(git rev-parse --abbrev-ref HEAD)
  git fetch
  HEADHASH=$(git rev-parse HEAD)
  UPSTREAMHASH=$(git rev-parse master@{upstream})
 
- if [ "$HEADHASH" != "$UPSTREAMHASH" ]
- then
- echo -e ${ACTION}Update available...
- echo -e ${ACTION}Updating...
- git pull
- echo -e ${ACTION}Stopping server...
- killProcess
- echo -e ${ACTION}Building new sources...
- make install
- echo -e ${ACTION}Done updating.
+ if [ "$HEADHASH" != "$UPSTREAMHASH" ]; then
+	echo -e ${ACTION}Update available...
+	echo -e ${ACTION}Updating...
+	git pull
+	echo -e ${ACTION}Stopping server...
+	killProcess
+	echo -e ${ACTION}Building new sources...
+	make install
+	echo -e ${ACTION}Done updating.
  fi
  keepAlive
 done
