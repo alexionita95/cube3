@@ -9,7 +9,7 @@ ACTION='\033[1;90m'
 
 killProcess()
 {
-if pgrep $proc_name
+if (( ! $(pgrep $proc_name) )) ;
 then
 pkill $proc_name
 fi
