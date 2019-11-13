@@ -25,14 +25,12 @@ then
 echo ""
 else
 cd ../
-./sauerbraten_unix &
+./sauerbraten_unix -d2 &
 cd src
 fi
 }
 
  while true; do 
- echo -e ${ACTION}Checking Git repo
- echo -e =======================${NOCOLOR}
  BRANCH=$(git rev-parse --abbrev-ref HEAD)
  git fetch
  HEADHASH=$(git rev-parse HEAD)
@@ -40,6 +38,7 @@ fi
 
  if [ "$HEADHASH" != "$UPSTREAMHASH" ]
  then
+  echo -e ${ACTION}Update available...
   echo -e ${ACTION}Updating...
  git pull
  echo -e ${ACTION}Stopping server...
