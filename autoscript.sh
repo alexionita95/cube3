@@ -47,7 +47,7 @@ fi
  echo -e ${ACTION}Done updating.
  
  else
-   echo 
+   echo >> /dev/null
  fi
  keepAlive
 done
