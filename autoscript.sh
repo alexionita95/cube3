@@ -9,10 +9,9 @@ ACTION='\033[1;90m'
 
 killProcess()
 {
-if pgrep $proc_name
+if pgrep $proc_name > /dev/null
 then
-echo ""
-pkill $proc_name
+killall $proc_name
 
 else
 echo "" >>/dev/null
@@ -30,7 +29,7 @@ cd ../
 cd src
 fi
 }
-
+killall $proc_name
  while true; do 
  BRANCH=$(git rev-parse --abbrev-ref HEAD)
  git fetch
@@ -39,13 +38,13 @@ fi
 
  if [ "$HEADHASH" != "$UPSTREAMHASH" ]
  then
-  echo -e ${ACTION}Updating...
+  echo -e ${READY}Updating...
  git pull
  echo -e ${ACTION}Stopping server...
  killProcess
  echo -e ${ACTION}Building new sources...
  make install
- echo -e ${ACTION}Done updating.
+ echo -e ${FINISHED}Done updating.
  
  else
    echo >> /dev/null
