@@ -35,8 +35,7 @@ fi
  HEADHASH=$(git rev-parse HEAD)
  UPSTREAMHASH=$(git rev-parse master@{upstream})
 
- if [ "$HEADHASH" != "$UPSTREAMHASH" ] 
- then
+ if [[ "$HEADHASH" != "$UPSTREAMHASH" ]]; then
 	echo -e ${ACTION}Update available...
 	echo -e ${ACTION}Updating...
 	git pull
