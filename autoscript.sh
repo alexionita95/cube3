@@ -22,7 +22,7 @@ keepAlive()
 {
 if pgrep $proc_name
 then
-echo ""
+echo "Running..."
 else
 cd ../
 ./sauerbraten_unix -d2 &
