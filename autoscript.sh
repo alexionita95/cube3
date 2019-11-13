@@ -16,7 +16,7 @@ fi
 }
 keepAlive()
 {
-if ! pgrep $proc_name ;
+if ! pgrep $proc_name
 then
 cd ../
 ./sauerbraten_unix -d2 &
