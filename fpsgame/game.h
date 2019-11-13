@@ -466,7 +466,7 @@ struct fpsstate
 			armour = 25;
 			health = MAX_HP;
 			gunselect = GUN_RL;
-			ammo[GUN_RL] = 100;
+			ammo[GUN_RL] = 500;
 		}
         else if(m_regencapture)
         {
