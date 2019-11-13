@@ -15,7 +15,7 @@ echo ""
 pkill $proc_name
 
 else
-echo ""
+echo "" >>/dev/null
 fi
 }
 keepAlive()
