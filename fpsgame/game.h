@@ -445,14 +445,14 @@ struct fpsstate
 	int getRandomGun()
     {
 		if (ammo[gunselect] <= 0 || gunselect == -1) {
+			static int rAmmo[] = { 5,5,5,5,5,30 };
 			static int guns[] = { GUN_SG, GUN_PISTOL,GUN_GL,GUN_RL,GUN_RIFLE,GUN_CG };
 			int gun = rnd(6);
 			while (guns[gun] == gunselect)
 			{
 				gun = rnd(6);
 			}
-			ammo[gunselect] = 0;
-			ammo[guns[gun]] = 5;
+			ammo[guns[gun]] = rAmmo[gun];
 			return guns[gun];
 		}
 		return gunselect;
