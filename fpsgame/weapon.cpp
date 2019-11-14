@@ -755,6 +755,10 @@ namespace game
         d->lastattackgun = d->gunselect;
         if(!d->ammo[d->gunselect])
         {
+			if (m_rgun)
+			{
+				d->getRandomGun();
+			}
             if(d==player1)
             {
                 msgsound(S_NOAMMO, d);
@@ -802,10 +806,7 @@ namespace game
 		d->gunwait = guns[d->gunselect].attackdelay;
 		if(d->gunselect == GUN_PISTOL && d->ai) d->gunwait += int(d->gunwait*(((101-d->skill)+rnd(111-d->skill))/100.f));
         d->totalshots += guns[d->gunselect].damage*(d->quadmillis ? 4 : 1)*guns[d->gunselect].rays;
-		if(m_rgun)
-		{
-			d->getRandomGun();
-		}
+
     }
 
     void adddynlights()

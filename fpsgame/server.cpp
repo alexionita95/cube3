@@ -2204,11 +2204,19 @@ namespace server
     {
         gamestate &gs = ci->state;
         int wait = millis - gs.lastshot;
-        if(!gs.isalive(gamemillis) ||
-           wait<gs.gunwait ||
-           gun<GUN_FIST || gun>GUN_PISTOL ||
-           gs.ammo[gun]<=0 || (guns[gun].range && from.dist(to) > guns[gun].range + 1))
-            return;
+		if (!gs.isalive(gamemillis) ||
+			wait < gs.gunwait ||
+			gun<GUN_FIST || gun>GUN_PISTOL ||
+			gs.ammo[gun] <= 0 || (guns[gun].range && from.dist(to) > guns[gun].range + 1))
+		{
+			if (m_rgun) {
+				if(gs.ammo[gun] <= 0)
+				{
+					gs.getRandomGun();
+				}
+			}
+			return;
+		}
         if(gun!=GUN_FIST) gs.ammo[gun]--;
         gs.lastshot = millis;
         gs.gunwait = guns[gun].attackdelay;
